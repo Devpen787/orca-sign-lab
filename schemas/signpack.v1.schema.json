@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:orca-hand-sign-lab:signpack:v1",
+  "title": "ORCA Sign Pack v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "language",
+    "region",
+    "gloss",
+    "sourcePhrases",
+    "referenceUrls",
+    "license",
+    "trust",
+    "createdAt",
+    "updatedAt",
+    "motion"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "signpack.v1" },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 80 },
+    "language": { "enum": ["asl", "dsgs"] },
+    "region": { "type": "string", "minLength": 2, "maxLength": 100 },
+    "gloss": { "type": "string", "pattern": "^[A-Z0-9]+(?:-[A-Z0-9]+)*$", "maxLength": 60 },
+    "sourcePhrases": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 160 }
+    },
+    "referenceUrls": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": { "type": "string", "format": "uri", "pattern": "^https://" }
+    },
+    "license": { "enum": ["CC-BY-4.0", "CC0-1.0", "MIT", "OTHER"] },
+    "trust": {
+      "enum": ["personal-draft", "source-backed", "community-reviewed", "signer-verified"]
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "motion": { "$ref": "#/$defs/wordMotion" }
+  },
+  "$defs": {
+    "vector": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "type": "number", "minimum": -3.2, "maximum": 3.2 }
+    },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["at", "poseKey", "offset", "rotation"],
+      "properties": {
+        "at": { "type": "number", "minimum": 0, "maximum": 1 },
+        "poseKey": { "type": "string", "pattern": "^(OPEN|FIST|POINT|[A-Z])$" },
+        "offset": { "$ref": "#/$defs/vector" },
+        "rotation": { "$ref": "#/$defs/vector" }
+      }
+    },
+    "handMotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frames"],
+      "properties": {
+        "frames": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 12,
+          "items": { "$ref": "#/$defs/frame" }
+        }
+      }
+    },
+    "wordMotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gloss", "durationMs", "hands", "sourceLabel", "sourceUrl", "note", "right"],
+      "allOf": [
+        {
+          "if": { "properties": { "hands": { "const": "two" } }, "required": ["hands"] },
+          "then": {
+            "required": ["left"],
+            "properties": { "left": { "$ref": "#/$defs/handMotion" } }
+          }
+        },
+        {
+          "if": { "properties": { "hands": { "const": "one" } }, "required": ["hands"] },
+          "then": {
+            "not": {
+              "required": ["left"],
+              "properties": { "left": { "$ref": "#/$defs/handMotion" } }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "gloss": { "type": "string" },
+        "durationMs": { "type": "integer", "minimum": 500, "maximum": 10000 },
+        "hands": { "enum": ["one", "two"] },
+        "sourceLabel": { "type": "string", "minLength": 2, "maxLength": 100 },
+        "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "note": { "type": "string", "minLength": 2, "maxLength": 500 },
+        "left": { "$ref": "#/$defs/handMotion" },
+        "right": { "$ref": "#/$defs/handMotion" }
+      }
+    }
+  }
+}

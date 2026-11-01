@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "signpack.v1",
+  "id": "asl-http-reference",
+  "language": "asl",
+  "region": "United States",
+  "gloss": "HELLO",
+  "sourcePhrases": ["hello"],
+  "referenceUrls": ["http://example.com/not-trusted"],
+  "license": "CC-BY-4.0",
+  "trust": "personal-draft",
+  "createdAt": "2026-08-31T12:00:00.000Z",
+  "updatedAt": "2026-08-31T12:00:00.000Z",
+  "motion": {
+    "gloss": "HELLO",
+    "durationMs": 1500,
+    "hands": "one",
+    "sourceLabel": "INVALID FIXTURE",
+    "sourceUrl": "http://example.com/not-trusted",
+    "note": "This fixture must fail the shared validator.",
+    "right": {
+      "frames": [
+        { "at": 0, "poseKey": "OPEN", "offset": [0, 0, 0], "rotation": [0, 0, 0] },
+        { "at": 1, "poseKey": "OPEN", "offset": [0, 0, 0], "rotation": [0, 0, 0] }
+      ]
+    }
+  }
+}

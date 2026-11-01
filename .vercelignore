@@ -1,0 +1,16 @@
+# Local environments and generated artifacts are never deployment inputs.
+.validation-venv/
+.validation-cache/
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+.vercel/
+
+# Repository-only evidence and automation are not needed by the Vite build.
+.git/
+.github/
+docs/
+tests/
+validation/

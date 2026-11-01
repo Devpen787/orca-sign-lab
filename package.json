@@ -1,0 +1,58 @@
+{
+  "name": "orca-hand-sign-lab",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "npm@10.9.9",
+  "engines": {
+    "node": ">=22.12 <25"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc -b --pretty false",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "oxlint --deny-warnings",
+    "lint:fix": "oxlint --fix",
+    "test": "npm run test:unit",
+    "test:unit": "vitest run src",
+    "test:e2e": "playwright test",
+    "test:e2e:update": "playwright test --update-snapshots",
+    "check:bundle": "node scripts/check-bundle.mjs",
+    "check:privacy": "node scripts/check-privacy.mjs",
+    "check:repository": "node scripts/check-repository.mjs",
+    "validate:signpacks": "tsx scripts/validate-signpacks.ts",
+    "verify": "npm run format:check && npm run lint && npm run typecheck && npm run check:repository && npm run check:privacy && npm run validate:signpacks && npm run test:unit && npm run build && npm run check:bundle",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource/space-mono": "^5.2.9",
+    "@react-three/drei": "^10.7.8",
+    "@react-three/fiber": "^9.7.0",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "three": "^0.185.1",
+    "urdf-loader": "^0.13.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^24.13.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "oxlint": "^1.71.0",
+    "prettier": "^3.9.6",
+    "tsx": "^4.23.13",
+    "typescript": "~6.0.2",
+    "vite": "8.1.6",
+    "vitest": "4.1.12"
+  },
+  "overrides": {
+    "vite": "$vite",
+    "vitest": "$vitest"
+  }
+}

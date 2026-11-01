@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "signpack.v1",
+  "id": "asl-hello",
+  "language": "asl",
+  "region": "United States",
+  "gloss": "HELLO",
+  "sourcePhrases": ["hello"],
+  "referenceUrls": ["https://www.handspeak.com/word/1015/"],
+  "license": "CC-BY-4.0",
+  "trust": "personal-draft",
+  "createdAt": "2026-08-31T12:00:00.000Z",
+  "updatedAt": "2026-08-31T12:00:00.000Z",
+  "motion": {
+    "gloss": "HELLO",
+    "durationMs": 1500,
+    "hands": "one",
+    "sourceLabel": "HANDSPEAK",
+    "sourceUrl": "https://www.handspeak.com/word/1015/",
+    "note": "Mechanical cue fixture for contract validation.",
+    "right": {
+      "frames": [
+        { "at": 0, "poseKey": "OPEN", "offset": [0, 0, 0], "rotation": [0, 0, 0] },
+        {
+          "at": 0.5,
+          "poseKey": "OPEN",
+          "offset": [0.02, 0, 0],
+          "rotation": [0, 0, 0]
+        },
+        { "at": 1, "poseKey": "OPEN", "offset": [0.04, 0, 0], "rotation": [0, 0, 0] }
+      ]
+    }
+  }
+}

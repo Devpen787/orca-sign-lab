@@ -1,0 +1,52 @@
+@import '@fontsource/space-mono/400.css';
+@import '@fontsource/space-mono/700.css';
+
+:root {
+  color: #f7f9fc;
+  background: #05070a;
+  font-family: 'Space Mono', monospace;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  background: #05070a;
+}
+body {
+  min-height: 100dvh;
+}
+button,
+textarea,
+a {
+  font: inherit;
+}
+button,
+label {
+  -webkit-tap-highlight-color: transparent;
+}
+button:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 2px solid #7bbcff;
+  outline-offset: 3px;
+}
+svg {
+  display: block;
+}
+.route-loader {
+  display: grid;
+  min-height: 100dvh;
+  place-items: center;
+  color: #6f91b5;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}

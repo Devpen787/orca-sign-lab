@@ -1,0 +1,7 @@
+spoken-to-signed @ git+https://github.com/sign-language-processing/spoken-to-signed-translation.git@259aacd6b0f268ccc6ed239e46f1c44beb056852
+pose-format==0.14.1
+numpy==2.5.2
+scipy==1.18.1
+simplemma==2.0.0
+dtaidistance==2.4.0
+fastdtw==0.3.4
