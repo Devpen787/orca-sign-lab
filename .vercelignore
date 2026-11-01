@@ -12,5 +12,5 @@ test-results/
 .git/
 .github/
 docs/
-tests/
+# TypeScript build checks include tests; keep them available to the builder.
 validation/
