@@ -10,8 +10,13 @@ A learning project about robotic hand models, motion planning, and the limits of
 hand-only sign representation. Start with [what I learned](docs/LEARNING.md),
 then reproduce a motion cue or build a local Sign Pack.
 
-Run the educational prototype locally using the commands below. A public demo
-destination has not been selected for this edition.
+**[Try the browser demo](https://orca-sign-lab.vercel.app/)** ·
+**[Explore the source](https://github.com/Devpen787/orca-sign-lab)**
+
+Feedback welcome: where does a motion cue become unclear or misleading? Include
+the phrase, language track, device/browser and expected behavior in a GitHub issue.
+Sign-language feedback from fluent signers is especially valuable; this prototype
+does not establish linguistic correctness.
 
 ![ORCA Hand Sign Lab showing independently framed support and dominant hands](docs/assets/motion-lab-desktop.png)
 
