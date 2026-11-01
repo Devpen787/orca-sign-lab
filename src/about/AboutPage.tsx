@@ -107,6 +107,11 @@ export function AboutPage({ onOpenLab }: { onOpenLab(): void }) {
             tracks, when fingerspelling is used, how each hand moves, and what still requires review
             by Deaf signers fluent in ASL or DSGS.
           </p>
+          <p>
+            <ExternalLink href="https://github.com/Devpen787/orca-sign-lab">
+              Explore the code, learning notes and feedback issues
+            </ExternalLink>
+          </p>
         </div>
       </section>
 
