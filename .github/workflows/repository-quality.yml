@@ -24,6 +24,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run verify
+      - run: npm audit --audit-level=moderate
 
   browser-behavior:
     runs-on: ubuntu-latest
